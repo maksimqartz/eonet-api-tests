@@ -2,11 +2,10 @@ package org.qapower.tests;
 
 import org.junit.jupiter.api.Test;
 import org.qapower.apiclient.EventsApi;
-import org.qapower.dto.Event;
+import org.qapower.assertions.EventsResponseAssert;
 import org.qapower.dto.EventsResponse;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.qapower.assertions.GetAsserts.assertGetResponseIs200;
 
 
 public class EventsSmokeTest extends BaseTest {
@@ -15,9 +14,7 @@ public class EventsSmokeTest extends BaseTest {
   
   @Test
   void eventsGetCodeIs200() {
-    api.getEvents(1)
-      .then()
-      .statusCode(200);
+    assertGetResponseIs200(api.getEvents(1));
   }
   
   @Test
@@ -27,12 +24,9 @@ public class EventsSmokeTest extends BaseTest {
       .jsonPath()
       .getObject("", EventsResponse.class);
     
-    assertNotNull(body.title());
-    assertNotNull(body.events());
-    assertFalse(body.events().isEmpty());
-    
-    Event event = body.events().getFirst();
-    assertNotNull(event.id());
-    assertNotNull(event.title());
+    EventsResponseAssert.assertThatEvents(body)
+      .hasTitle()
+      .hasEvents()
+      .firstEventIsValid();
   }
 }

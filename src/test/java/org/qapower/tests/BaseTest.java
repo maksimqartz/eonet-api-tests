@@ -9,6 +9,7 @@ public class BaseTest {
   @BeforeAll
   static void setUp() {
     RestAssured.defaultParser = Parser.JSON;
+    RestAssured.registerParser("application/rss+xml", Parser.JSON);
     
     RestAssured.config = RestAssured.config()
       .httpClient(
