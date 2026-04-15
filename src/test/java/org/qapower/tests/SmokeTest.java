@@ -45,8 +45,6 @@ public class SmokeTest extends BaseTest {
     Response response = request.get();
     assertGetResponseIs200(response);
     assertGetResponseBodyIsNotEmpty(response);
-
-    Object result = response.as(responseType);
-    assertNotNull(result, name + " deserialization returned null");
+    assertNotNull(response.as(responseType), name + " deserialization returned null");
   }
 }

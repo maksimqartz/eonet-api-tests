@@ -7,7 +7,7 @@ import org.junit.jupiter.api.BeforeAll;
 public class BaseTest {
 
   @BeforeAll
-  static void setUp() {
+  static void setUpBase() {
     RestAssured.defaultParser = Parser.JSON;
     RestAssured.registerParser("application/rss+xml", Parser.JSON);
 
