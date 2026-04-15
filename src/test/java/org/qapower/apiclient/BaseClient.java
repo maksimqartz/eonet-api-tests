@@ -11,11 +11,11 @@ public class BaseClient {
   protected RequestSpecification request() {
     return BaseRequestSpec.getRequestSpecBuilder().build();
   }
-  
+
   protected ResponseSpecification response() {
     return BaseResponseSpec.getResponseSpecBuilder().build();
   }
-  
+
   protected Response get(String path) {
     return given()
       .spec(request())
@@ -26,7 +26,7 @@ public class BaseClient {
       .extract()
       .response();
   }
-  
+
   protected Response get(String path, String paramName, Object value) {
     return given()
       .spec(request())
@@ -38,6 +38,4 @@ public class BaseClient {
       .extract()
       .response();
   }
-  
-  
 }

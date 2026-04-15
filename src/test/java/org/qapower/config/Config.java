@@ -4,9 +4,9 @@ import java.io.InputStream;
 import java.util.Properties;
 
 public class Config {
-  
+
   private static final Properties props = new Properties();
-  
+
   static {
     try (InputStream is = Config.class.getClassLoader().getResourceAsStream("config.properties")) {
       if (is == null) {
@@ -17,9 +17,8 @@ public class Config {
       throw new RuntimeException("Failed to load config.properties", e);
     }
   }
-  
+
   public static String getBaseUrl() {
     return System.getProperty("baseUrl", props.getProperty("baseUrl"));
   }
-  
 }

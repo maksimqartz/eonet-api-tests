@@ -43,3 +43,6 @@ build/
 ### Mac OS ###
 .DS_Store
 /DOCS.md
+
+
+/HOW_TO_PARAMS.md
