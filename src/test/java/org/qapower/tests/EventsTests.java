@@ -1,6 +1,5 @@
 package org.qapower.tests;
 
-import io.restassured.response.Response;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.qapower.apiclient.EventsApi;
