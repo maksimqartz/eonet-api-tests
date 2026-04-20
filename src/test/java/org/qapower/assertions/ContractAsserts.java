@@ -7,7 +7,9 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import io.restassured.response.Response;
 import java.util.List;
 
-public class ContractAsserts {
+public final class ContractAsserts {
+
+  private ContractAsserts() {}
 
   // JsonPath is used instead of deserializing the entire response into a DTO,
   // allowing direct validation of the contract based on actual response fields.

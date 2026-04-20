@@ -17,8 +17,8 @@ import org.qapower.dto.MagnitudesResponse;
 import org.qapower.dto.SourcesResponse;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.qapower.assertions.GetAsserts.assertGetResponseBodyIsNotEmpty;
-import static org.qapower.assertions.GetAsserts.assertGetResponseIs200;
+import static org.qapower.assertions.ResponseAsserts.assertResponseBodyIsNotEmpty;
+import static org.qapower.assertions.ResponseAsserts.assertResponseStatusOk;
 
 public class SmokeTest extends BaseTest {
 
@@ -30,7 +30,7 @@ public class SmokeTest extends BaseTest {
         Arguments.of("Categories",
             (Supplier<Response>) () -> new CategoriesApi().getCategories(),
             CategoriesResponse.class),
-        Arguments.of("Magnitudes",
+        Arguments.of("Magnitude",
             (Supplier<Response>) () -> new MagnitudesApi().getMagnitudes(),
             MagnitudesResponse.class),
         Arguments.of("Sources",
@@ -43,8 +43,8 @@ public class SmokeTest extends BaseTest {
   @MethodSource("apiProvider")
   void smokeTest(String name, Supplier<Response> request, Class<?> responseType) {
     Response response = request.get();
-    assertGetResponseIs200(response);
-    assertGetResponseBodyIsNotEmpty(response);
+    assertResponseStatusOk(response);
+    assertResponseBodyIsNotEmpty(response);
     assertNotNull(response.as(responseType), name + " deserialization returned null");
   }
 }

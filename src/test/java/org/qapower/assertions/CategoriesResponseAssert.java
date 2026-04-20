@@ -29,10 +29,10 @@ public class CategoriesResponseAssert {
     return this;
   }
 
-  public CategoriesResponseAssert firstEventIsValid() {
-    Category event = actual.categories().getFirst();
-    assertNotNull(event.id());
-    assertNotNull(event.title());
+  public CategoriesResponseAssert firstCategoryIsValid() {
+    Category category = actual.categories().getFirst();
+    assertNotNull(category.id());
+    assertNotNull(category.title());
     return this;
   }
 }

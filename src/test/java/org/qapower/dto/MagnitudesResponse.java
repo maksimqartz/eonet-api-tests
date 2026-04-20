@@ -6,6 +6,6 @@ public record MagnitudesResponse(
 	String link,
 	String description,
 	String title,
-	List<Magnitudes> magnitudes
+	List<Magnitude> magnitudes
 ) {
 }

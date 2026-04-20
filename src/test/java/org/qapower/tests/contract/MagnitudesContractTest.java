@@ -8,9 +8,10 @@ import io.restassured.response.Response;
 import java.util.function.Supplier;
 import org.junit.jupiter.api.Test;
 import org.qapower.apiclient.MagnitudesApi;
+import org.qapower.tests.BaseTest;
 import org.qapower.utils.Lazy;
 
-public class MagnitudesContractTest {
+public class MagnitudesContractTest extends BaseTest {
 
   private static final Supplier<Response> response =
       new Lazy<>(() -> new MagnitudesApi().getMagnitudes());

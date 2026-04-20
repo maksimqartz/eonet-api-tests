@@ -1,6 +1,6 @@
 package org.qapower.dto;
 
-public record Magnitudes(
+public record Magnitude(
 	String unit,
 	String name,
 	String link,
