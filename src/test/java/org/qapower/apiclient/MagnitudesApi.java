@@ -1,8 +1,8 @@
 package org.qapower.apiclient;
 
-import io.restassured.response.Response;
-
 import static org.qapower.endpoints.Endpoints.MAGNITUDES;
+
+import io.restassured.response.Response;
 
 public class MagnitudesApi extends BaseClient {
 

@@ -13,8 +13,7 @@ import org.qapower.utils.Lazy;
 
 public class EventsContractTest extends BaseTest {
 
-  private static final Supplier<Response> response =
-      new Lazy<>(() -> new EventsApi().getEvents(1));
+  private static final Supplier<Response> response = new Lazy<>(() -> new EventsApi().getEvents(1));
 
   @Test
   void rootContainsRequiredFields() {

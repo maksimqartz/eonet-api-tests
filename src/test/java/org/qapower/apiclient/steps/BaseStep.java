@@ -1,6 +1,3 @@
 package org.qapower.apiclient.steps;
 
-public class BaseStep {
-
-
-}
+public class BaseStep {}

@@ -16,29 +16,26 @@ public final class ContractAsserts {
   public static void assertFieldExists(Response response, String path) {
     assertNotNull(
         response.jsonPath().get(path),
-        String.format("Expected field '%s' to exist in the response, but it was null.", path));
+        "Expected field '%s' to exist in the response, but it was null.".formatted(path));
   }
 
   public static void assertNonEmptyArray(Response response, String path) {
     List<?> list = response.jsonPath().getList(path);
     assertNotNull(
-        list,
-        String.format("Expected array '%s' to exist in the response, but it was null.", path));
+        list, "Expected array '%s' to exist in the response, but it was null.".formatted(path));
     assertFalse(
         list.isEmpty(),
-        String.format("Expected non-empty array '%s' in the response, but it was empty.", path));
+        "Expected non-empty array '%s' in the response, but it was empty.".formatted(path));
   }
 
   public static void assertFieldIsString(Response response, String path) {
     Object value = response.jsonPath().get(path);
     assertNotNull(
-        value,
-        String.format("Expected field '%s' to exist in the response, but it was null.", path));
+        value, "Expected field '%s' to exist in the response, but it was null.".formatted(path));
     assertInstanceOf(
         String.class,
         value,
-        String.format(
-            "Expected field '%s' to be a string, but it was %s.",
-            path, value.getClass().getSimpleName()));
+        "Expected field '%s' to be a string, but it was %s."
+            .formatted(path, value.getClass().getSimpleName()));
   }
 }
