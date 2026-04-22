@@ -7,6 +7,7 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneOffset;
 import java.time.temporal.ChronoUnit;
+import java.util.Arrays;
 import java.util.List;
 import org.qapower.dto.Category;
 import org.qapower.dto.Event;
@@ -97,7 +98,9 @@ public class EventsResponseAssert {
 
   @Step("Checking that all events have correct filtered categories: {categoryFilter}")
   public EventsResponseAssert hasCorrectCategories(String categoryFilter) {
-    List<String> expectedIds = List.of(categoryFilter.split(","));
+    List<String> expectedIds = Arrays.stream(categoryFilter.split(","))
+        .map(String::trim)
+        .toList();
 
     assertAll(actual.events().stream()
         .map(event -> () -> {

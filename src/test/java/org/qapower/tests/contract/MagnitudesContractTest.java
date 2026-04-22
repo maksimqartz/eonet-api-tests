@@ -1,5 +1,6 @@
 package org.qapower.tests.contract;
 
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.qapower.assertions.ContractAsserts.assertFieldExists;
 import static org.qapower.assertions.ContractAsserts.assertFieldIsString;
 import static org.qapower.assertions.ContractAsserts.assertNonEmptyArray;
@@ -15,6 +16,11 @@ public class MagnitudesContractTest extends BaseTest {
 
   private static final Supplier<Response> response =
       new Lazy<>(() -> new MagnitudesApi().getMagnitudes());
+
+  @Test
+  void magnitudesResponseMatchesContract() {
+    response.get().then().body(matchesJsonSchemaInClasspath("schemas/magnitudes.json"));
+  }
 
   @Test
   void rootContainsRequiredFields() {

@@ -11,8 +11,7 @@ public class CategoriesTest extends BaseTest {
 
   @Test
   void getCategoriesBodyValid() {
-    CategoriesResponse body =
-        api.getCategories(1).getBody().jsonPath().getObject("", CategoriesResponse.class);
+    CategoriesResponse body = api.getCategories(1).as(CategoriesResponse.class);
 
     CategoriesResponseAssert.assertThatCategories(body)
         .hasTitle()

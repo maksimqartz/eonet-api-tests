@@ -17,7 +17,6 @@ public class CategoriesContractTest extends BaseTest {
   private static final Supplier<Response> response =
       new Lazy<>(() -> new CategoriesApi().getCategories());
 
-  // TODO: Внедрить повсеместно через assert + step
   @Test
   void categoriesResponseMatchesContract() {
     response.get().then().body(matchesJsonSchemaInClasspath("schemas/categories.json"));

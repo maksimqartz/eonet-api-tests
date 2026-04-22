@@ -7,7 +7,7 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record Geometry(
     Instant date,
-    Object magnitudeValue,
+    Double magnitudeValue,
     List<Object> coordinates,
     String type,
     String magnitudeUnit) {}
