@@ -52,7 +52,7 @@ public class EventsResponseAssert {
 
   @Step("Checking that all events have geometry dates within the last {days} days")
   public EventsResponseAssert hasEventsInPeriod(int days) {
-    Instant boundary = Instant.now().minus(days, ChronoUnit.DAYS);
+    Instant boundary = Instant.now().truncatedTo(ChronoUnit.DAYS).minus(days, ChronoUnit.DAYS);
     assertAll(actual.events().stream()
         .map(event -> () -> {
           boolean hasRecentDate = event.geometry().stream()

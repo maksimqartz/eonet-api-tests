@@ -36,7 +36,8 @@ public final class BaseRequestSpec {
             .setBaseUri(Config.getBaseUrl())
             .setBasePath(PATH_API_VERSION)
             .setAccept(ContentType.JSON)
-            .setConfig(httpConfig);
+            .setConfig(httpConfig)
+            .addFilter(new RetryFilter());
 
     if (System.getProperty("debug") != null) {
       builder.log(LogDetail.ALL);

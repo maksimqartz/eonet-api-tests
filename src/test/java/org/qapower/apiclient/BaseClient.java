@@ -10,7 +10,6 @@ import static io.restassured.RestAssured.given;
 
 public abstract class BaseClient {
 
-  // Specs строятся один раз - статическая инициализация при загрузке класса
   private static final RequestSpecification REQUEST_SPEC =
       BaseRequestSpec.getRequestSpecBuilder().build();
   private static final ResponseSpecification RESPONSE_SPEC =
